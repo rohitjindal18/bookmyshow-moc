@@ -1,0 +1,365 @@
+<html>
+<head>
+	<title>Booking Page</title>
+	<link rel="stylesheet" type="text/css" href="./style/booking.css"/>
+	<script type="text/javascript">
+		var numberofSeats = 0;
+		var numberSeatsSelected = 0;
+		var isSeatSelected = false;
+		var seatSelected = [];
+		var totalPrice = 0;
+		var currentPrice = 0;
+		function seatCountClicked(event) {
+			numberofSeats =  event.textContent;
+			document.getElementById('numberOfTickets').style.display = 'none';
+			document.getElementById('seatSelect').value = numberofSeats;
+			document.getElementById('seatLayoutDiv').style.opacity = 1;
+		}
+
+		function changebackground(event) {
+			event.style.backgroundColor = "white";
+		}
+
+		function proceedSeatSelect() {
+			//document.cookie = "seats="+seatSelected+";totalPrice="+totalPrice+";";
+			window.location.href="finalBook.html?seats="+seatSelected+"&totalPrice="+totalPrice;
+		}
+
+		function selectSeat(event){
+			console.log(numberofSeats);
+			var rowPrice = event.parentNode.parentNode.parentNode.rows[0].cells.item(0).textContent;
+			switch(rowPrice){
+				case "I":
+				case "H":
+					currentPrice = 300;
+					break;
+				case "G":
+				case "F":
+					currentPrice = 140;
+					break;
+				case "E":
+				case "D":
+				case "C":
+					currentPrice = 120;
+					break;
+				case "B":
+				case "A":
+					currentPrice = 100;
+					break;
+			}
+			if(event.isSeatSelected){
+				event.style.backgroundColor = "white";
+				event.style.color = "C1C1C1";
+				numberSeatsSelected--;
+				event.isSeatSelected = false;
+				var rowNo = event.parentNode.parentNode.parentNode.rows[0].cells.item(0).textContent;
+				var index = seatSelected.indexOf(rowNo+event.textContent);
+				seatSelected.splice(index , 1);
+				totalPrice = totalPrice - currentPrice;
+			}
+			else if(++numberSeatsSelected <= numberofSeats){
+				event.style.backgroundColor = "#49BA8E";
+				event.style.color = "white";
+				event.isSeatSelected = true;
+				var rowNo = event.parentNode.parentNode.parentNode.rows[0].cells.item(0).textContent;
+				seatSelected.push(rowNo+event.textContent);
+				totalPrice = totalPrice + currentPrice;
+			}
+
+			document.getElementById('priceAmount').innerHTML = totalPrice;
+
+			if(numberSeatsSelected < numberofSeats){
+				document.getElementById('proceedButton').style.display = 'none';
+			}	
+			else {
+				document.getElementById('proceedButton').style.display = 'block';
+			}
+		}
+
+		function changeNumberOfSeats() {
+			numberofSeats = document.getElementById('seatSelect').value;
+		}
+
+		function changeticketImage(event){
+			document.getElementById('imageTicketCount').innerHTML = "";
+			var image = document.createElement('img');
+			event.style.backgroundColor = "#49BA8E";
+			image.class = "imageticket";
+			switch(event.textContent){
+				case "1":
+					image.src ="./Images/cycle.png";
+					break;
+				case "2":
+					image.src = "./Images/bike.png"
+					break;
+				case "3":
+					image.src = "./Images/auto.png"
+					break;
+				case "4":
+					image.src = "./Images/car.png"
+					break;
+				case "5":
+					image.src = "./Images/suv.png"
+					break;
+				case "6":
+					image.src = "./Images/bus.png"
+					break;
+				case "7":
+					image.src = "./Images/bus.png"
+					break;
+				case "8":
+					image.src = "./Images/bus.png"
+					break;
+				case "9":
+					image.src = "./Images/bus.png"
+					break;
+				case "10":
+					image.src = "./Images/bus.png"
+					break;
+			}
+			document.getElementById('imageTicketCount').appendChild(image);
+		}
+	</script>
+</head>
+	<body>
+		<div id="bookingDiv">
+			<div id="numberOfTickets">
+				<div class="ticketHeader">
+					<span>HOW MANY TICKETS ?</span>
+				</div>
+				<div id="ticketCounter">
+						<table>
+							<tr>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>1</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>2</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>3</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>4</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>5</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>6</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>7</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>8</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>9</strong></td>
+								<td onmouseout="changebackground(this)" onmouseover="changeticketImage(this)" onclick="seatCountClicked(this)"><strong>10</strong></td>
+							</tr>
+						</table>
+						<div id="imageTicketCount"></div>
+				</div>
+			</div>
+			<div id="bookingHeaderDiv">
+				<div id="movieTitle">
+					<span>Madaari (U/A)</span>
+				</div>
+				<div id="ticketCount">
+					<h5>NO. OF TICKETS</h5>
+					<select id="seatSelect" onchange="changeNumberOfSeats()">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+					</select>
+				</div>
+				<div id="showTime">
+					<h5>SHOWTIME</h5>
+					<div><span>04 : 25 PM</span></div>
+				</div>
+				<div id="totalPriceDiv">
+					<div style="color:white">
+					Total : Rs. <span id="priceAmount"></span>
+					</div>
+
+					<div id="proceedButton" onclick="proceedSeatSelect()">
+						PROCEED
+					</div>
+				</div>
+			</div>
+			<div id="seatLayoutDiv">
+				<div id="seatLayout">
+					<div id="firstDiv"><span>VIP - RS. 300</span></div>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>I</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>H</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div><br/>
+					<div id="premiumDiv"><span>PREMIUM - RS. 140</span></div>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>G</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>F</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div id="executiveDiv"><span>EXECUTIVE - RS. 120</span></div>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>E</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>D</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>C</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div id="normalDiv"><span>NORMAL - RS. 100</span></div>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>B</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<div class="seatDiv">
+						<table>
+							<tbody>
+								<tr>
+									<td class="rowAlphabet"><strong>A</strong></td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">1</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">2</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">3</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">4</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">5</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">6</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">7</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">8</td>
+									<td onclick="selectSeat(this)" class="seatAlphabet">9</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br/>
+					<br/>
+					<div id="screenDiv">
+						<span><strong>ALL EYES THIS WAY PLEASE</strong></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

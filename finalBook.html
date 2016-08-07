@@ -1,0 +1,23 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./style/finalBook.css">
+<script type="text/javascript">
+	function loaded(){
+		var params = document.URL.split('?');
+		var seats = params[1].split('&');
+		var totalPrice = seats[1];
+		var seat = seats[0];
+		console.log(seat + totalPrice);
+	}
+</script>
+</head>
+<body onload="loaded()">
+	<div id="finalHeaderDiv">
+		<div id="headerDiv">
+			<span>Madaari (U/A)</span>
+		</div>
+		<div id="summaryDiv">
+		</div>
+	</div>
+</body>
+</html>

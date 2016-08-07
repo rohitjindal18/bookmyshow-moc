@@ -1,0 +1,24 @@
+#headerDiv {
+	background-color: #1F2533;
+}
+
+#finalHeaderDiv {
+	width: 1430px;
+	height: 110px;
+	background-color: #1F2533;
+	position: fixed;
+	top : 0;
+	left: 0;
+	display: inline-flex;
+}
+
+#headerDiv span {
+	color: #49BA8E;
+	font-size: 28px;
+	height: 110px;
+	width: 200px;
+	line-height: 110px;
+	text-align: center;
+	letter-spacing: 2px;
+	margin-left: 10px;
+}

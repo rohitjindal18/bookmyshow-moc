@@ -1,0 +1,418 @@
+body , html {
+	margin : 0;
+	padding : 0;
+}
+#leftmenu {
+	float:left;
+	margin-top: 9px;
+	height: 40px;
+	text-transform: uppercase;
+}
+
+#leftmenu span {
+	color: white;
+}
+
+#rightmenu {
+	float: right;
+	color : white;
+	margin-top: 9px;
+	height: 40px;
+	text-transform: uppercase;
+}
+#topDiv{
+	background-color: #1F2533;
+	width: 1430px;
+	height: 40px;	
+	position: fixed;
+}
+
+#langDiv {
+	float: right;
+	margin-right: 80px;
+	margin-top: -12px;
+}
+
+#languageSelect {
+	width: 100px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	height: 30px;
+	border : 2px solid white;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+#secondDiv {
+	width: 1430px;
+	height:35px;
+	padding-top: 38px;
+	position: fixed;
+	margin-top: 38px;
+	opacity: 0.5;
+	background-color: #656570;
+}
+
+div  div span {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.spanWhite {
+	color: white;
+	text-transform: uppercase;
+}
+
+.spanBlack {
+	color: black;
+	text-transform: uppercase;
+}
+#newTag {
+	background-color: red;
+	width: 22px;
+	height: 12px;
+	font-size: 9px;
+	border-radius: 3px;
+	position: absolute;
+	margin-left: 620px;
+	margin-top: -20px;
+}
+
+#newTagSpan {
+	color: white;
+}
+
+#carouselDiv {
+	width: 1430px;
+	height: 250px;
+	padding-top: 30px;
+}
+
+#carouselimg {
+	width: 1430px;
+	height: 480px;
+}
+
+#searchContainerDiv {
+	width: 1430px;
+	margin-top: 130px;
+	z-index: 100;
+	position: relative;
+}
+
+#searchDiv {
+	width: 100%;
+	display: flex;
+}
+
+#allDiv {
+	background-color: #C02C3A;
+	width: 180px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin-left: 400px;
+}
+
+
+#searchInnerDiv {
+	background-color: white;
+	text-align: center;
+	width: 500px;
+	height: 50px;
+	line-height: 50px;
+}
+
+#sectionHeader {
+	margin-top: 75px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+div h3 span {
+	text-transform: uppercase;
+}
+
+#moviesDiv {
+	width: 1430px;
+	height: 500px;
+}
+
+#moviesSubDiv{
+	width: 1430px;
+	height: 520px;
+	display: inline-flex;
+	background-color: #F3F3F3;
+}
+
+#topMoviesDiv {
+	margin-left: 140px;
+	background-color: #E9E9E9;
+	height: 520px;
+	width: 250px;
+}
+
+.topMovies {
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-bottom: -19px;
+}
+
+h3 {
+	text-transform: uppercase;
+}
+#topMoviesList {
+	width: 250px;
+	height: auto;
+	margin-top: 32px;
+}
+
+.heart-image{
+	width: 16px;
+	height: 16px;
+}
+.percent {
+	color: red;
+}
+
+.movieListId {
+	margin-top: 22px;
+}
+
+.movieName {
+	font-family: Verdana;
+}
+
+#nowShowingDiv {
+	
+	height: 480px;
+	width: 1200px;
+}
+
+#justDiv {
+	width: 137px;
+	height: 35px;
+	background-color: white;
+	line-height: 35px;
+	transform: rotate(-45deg);
+	margin-top: 38px;
+	box-shadow: 0 2px 3px 2px #E7E7E7;
+	display: inline-block;
+}
+
+#nowShowingTab {
+	display: inline-flex;
+	width: 400px;
+	height: 50px;
+	margin-left: 200px;
+	margin-right: auto;
+	margin-top : 30px;
+}
+
+#searchCity {
+	display: none;
+	position: absolute;
+	margin-left: 1200px; 
+	margin-top: 40px;
+	width : 300px;
+	height: 60px;
+	background-color: #F4F4F4;
+	z-index: 100;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 8px;
+}
+#searchCitySub {
+	margin-top: 10px;
+	width: 150px;
+	height: 50px;
+	margin-left: 35px;
+	border-radius: 8px;
+}
+
+#searchCitySub input {
+	border-radius: 8px;
+	width: 150px;
+	height: 40px;
+	box-shadow: 0 2px 3px 2px #E7E7E7;
+	text-align: center;
+}
+
+#citySpan {
+	text-decoration: none;
+	color: red;
+}
+
+#showing {
+	width: 200px;
+	height: 50px;
+	background-color: white;
+	line-height: 50px;
+	text-align: center;
+	border : 1px solid #656570;
+}
+
+#comingsoon {
+	width: 200px;
+	height: 50px;
+	background-color: #F2F2F2;
+	color: #656570;
+	line-height: 50px;
+	text-align: center;
+	border : 1px solid #656570;
+}
+
+#movieBanner {
+	display: inline-flex;
+}
+
+#movieBanner1 {
+	display: inline-block;
+	margin-left: 130px;
+	margin-top: 40px;
+	width: 200px;
+	height: 380px;
+	background-color: white;
+}
+#movieBanner2 {
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: 40px;
+	width: 200px;
+	height: 380px;
+	background-color: white;
+}
+#movieBanner3 {
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: 40px;
+	width: 200px;
+	height: 380px;
+	background-color: white;
+}
+
+.imageMovie img {
+	width: 200px;
+	height: 190px;
+}
+
+.movieName {
+	margin-top: 7px;
+	font-family: Verdana;
+}
+
+.movieLanguage {
+	margin-top: 10px;
+	font-size: 15px;
+	color: #6B6B76;
+}
+
+.jonner {
+	display: inline-block;
+	margin-top: 5px;
+	margin-left: 9px;
+}
+.jonnerItem {
+	display: inline-block;
+	font-size: 9px;
+	width: 36px;
+	height: 7px;
+	background-color: #F4F4F4;
+	border : 2px solid #F4F4F4;
+	color :#6B6B76 ;
+	border-radius: 8px;
+}
+
+.hallName {
+	margin-top: 9px;
+	font-size: 14px;
+}
+
+#allSubMenu {
+	position: absolute;
+	z-index: 100;
+	width: 180px;
+	height: 200px;
+	background-color: #C02C3A;
+	color: white;
+	margin-left: 400px;
+	margin-top: 180px;
+	display: none;
+}
+
+.movieDate {
+	margin-top: 7px;
+	font-size: 12px;
+}
+
+.movieTime {
+	margin-top: 8px;
+	width: 65px;
+	height: 20px;
+	font-size: 10px;
+	line-height: 20px;
+	background-color: #C02C39;
+	color: white;
+	letter-spacing: 2px;
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
+.movieTime a {
+	text-decoration: none;
+	color: white;
+}
+
+.cityTables td {
+	text-align: center;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #F4F4F4;
+	border-bottom-width: 5px;
+	border-color: black;
+	letter-spacing: 2px;
+}
+
+
+.cityTables tr {
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 8px;
+}
+
+.cityTables {
+	height: auto;
+	width: 150px;
+}
+
+#searchedCities {
+	display: none;
+	width: 150px;
+	height: auto;
+	position: absolute;
+	background-color: #F4F4F4;
+	margin-left: 1235px;
+	margin-top: 90px;
+	z-index: 100;
+	border-radius: 8px;
+}
+
+.moreShows {
+	margin-top: 5px;
+	margin-left: -4px;
+	color: #C02C39;
+}
+
+.subMenuAll {
+	width: 180px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	text-transform: uppercase;
+}

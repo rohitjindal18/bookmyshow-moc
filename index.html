@@ -1,0 +1,289 @@
+<html>
+<head>
+	<title>Book My Show </title>
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<link rel="stylesheet" type="text/css" href="./style/fonts.css">
+	<script type="text/javascript" src="./js/script.js"></script>
+	<script type="text/javascript">
+		var loaded1 = false;
+		function menuClicked(event) {
+				console.log(event.innerHTML);
+		}
+		function bookMadaari(){
+
+		}
+		function AllMenuLoaded() {
+
+			document.getElementById('allSubMenu').style.display = 'block';
+		}
+
+		function AllMenuUnloaded() {
+			document.getElementById('allSubMenu').style.display = 'none';
+		}
+		function AllSubMenuLoaded() {
+			
+			document.getElementById('allSubMenu').style.display = 'block';
+		}
+
+		function AllSubMenuUnLoaded() {
+				
+			document.getElementById('allSubMenu').style.display = 'none';
+		}
+		function spanOver(event) {
+			event.style.color = "green";
+		}
+		function spanOut(event) {
+			event.style.color = "white";
+		}
+
+		function findCity() {
+			if(!loaded1){
+				document.getElementById('searchCity').style.display = 'block';
+				loaded1 = true;
+			}
+			else {
+				document.getElementById('searchCity').style.display = 'none';
+				loaded1 = false;
+			}
+			
+		}
+		var IndianCities = ["Bengaluru" ,"Lucknow" , "Delhi" , "Noida"];
+
+		function cityEntered() {
+			document.getElementById('cityTable').innerHTML = "";
+			var searchedCities = [];
+			var searchValue = document.getElementById('cityInput').value;
+			if(searchValue.length > 0){
+				for(var i = 0; i<IndianCities.length ; i++){
+					if(IndianCities[i].toLowerCase().indexOf(searchValue.toLowerCase()) != -1){
+						searchedCities.push(IndianCities[i]);
+					}
+				}
+				var tableBody = document.getElementById('cityTable');
+				document.getElementById('searchedCities').style.display = 'block';
+				for(var i = 0; i<searchedCities.length ; i++){
+					var tableRow = document.createElement('tr');
+					var tableCell = document.createElement('td');
+					tableCell.innerHTML = searchedCities[i];
+					tableCell.onmouseover = function() {cellMouseOver(this)};
+					tableCell.onmouseout = function() {cellMouseOut(this)};
+					tableCell.onclick = function() {cellClicked(this)};
+					tableRow.appendChild(tableCell);
+					tableBody.appendChild(tableRow);
+
+				}
+			}
+			else {
+				document.getElementById('searchedCities').style.display = 'none';
+			}
+		}
+
+		function cellMouseOver(event) {
+			event.style.backgroundColor = "#F0F0B0";
+		}
+		function cellMouseOut(event) {
+			event.style.backgroundColor = "#F4F4F4";
+		}
+		function cellClicked(event) {
+			document.getElementById('searchedCities').style.display = 'none';
+			document.getElementById('citySpan').innerHTML = "You'r in "+event.innerHTML;
+			document.getElementById('cityInput').value = "";
+			document.getElementById('searchCity').style.display = 'none';
+			loaded1 = false;
+		}
+	</script>
+</head>
+<body>
+	<div id="topDiv">
+		<div id="leftmenu">
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">EXPERIENCES</span>
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">MOVIES</span>
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">EVENTS</span>
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">PLAYS</span>
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">SPORTS</span>
+			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">TRAILERS & VIDEOS
+				<div id="newTag">NEW</div>
+			</span>
+		</div>
+		<div id="rightmenu">
+			<span>OFFERS</span>
+			<span>GIFTCARDS</span>
+			<span>SUPPORT</span>
+			<span id="citySpan" onclick="findCity()"><a href="#">You'r In</a></span>
+		</div>
+	</div>
+	<div id="searchCity">
+		<div id="searchCitySub">
+			<input id="cityInput" type="text" name="" placeholder="ENTER YOUR CITY" onkeyup="cityEntered()" />
+		</div>
+	</div>
+	<div id="searchedCities">
+			<table class="cityTables">
+				<tbody id="cityTable">
+					
+				</tbody>
+			</table>
+		</div>
+	<div id="secondDiv">
+		<div id="logoDiv"></div>
+		<div id="langDiv">
+			<select id="languageSelect" defaultValue="English">
+				<option>English</option>
+				<option>Hindi</option>
+			</select>
+		</div>
+	</div>#
+	<div id="carouselDiv">
+		<img id="carouselimg" src="./Images/carousel1.jpg"/>
+	</div>
+	<div id="allSubMenu">
+		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">MOVIES</div>
+		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">EVENTS</div>
+		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">PLAYS</div>
+		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">SPORTS</div>
+	</div>
+	<div id="searchContainerDiv">
+		<div id="searchDiv">
+			<div id="allDiv" onmouseover="AllSubMenuLoaded()" onmouseleave="AllSubMenuUnLoaded()">
+				<span class="spanWhite">All</span>
+			</div>
+			<div id="searchInnerDiv">
+				<span class="spanBlack"><strong>Book Tickets for Movies, Events, Plays & Sports</strong></span>
+			</div>
+		</div>
+	</div>
+	<div id="sectionHeader">
+		<h3> <span>FEATURED MOVIES </span></h3>
+	</div>
+	<div id="moviesDiv">
+		<div id="moviesSubDiv">
+			<div id="topMoviesDiv">
+				<div class="topMovies">
+					<h3>
+						TOP MOVIES		
+					</h3>
+				</div>
+				<div id="topMoviesList">
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">90%</span><span class="movieName">Kabali (U)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">69%</span><span class="movieName">Dishoom (U/A)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">70%</span><span class="movieName">Lights Out (A)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">78%</span><span class="movieName">Madaari</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">81%</span><span class="movieName">The BFG (3D)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">75%</span><span class="movieName">Bad Moms (A)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">78%</span><span class="movieName">Sultan</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">67%</span><span class="movieName">Ghostbusters (3D)</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">98%</span><span class="movieName">Ice Age</span></div>
+					<div class="movieListId"><span><img class="heart-image" src="./Images/like.jpg"/></span><span class="percent">85%</span><span class="movieName">Raman Raghav</span></div>
+				</div>
+			</div>
+			<div id="nowShowingDiv">
+				<div id="justDiv">
+					<span>JUST FOR YOU</span>
+				</div>
+				<div id="nowShowingTab">
+					<div id="showing">
+						<span>NOW SHOWING</span>
+					</div>
+					<div id="comingsoon">
+						<span>COMING SOON</span>
+					</div>
+				</div><br/>
+				<div id="movieBanner">
+					<div id="movieBanner1">
+						<div class="imageMovie"><img src="./Images/madaari.jpg"/></div>
+						<div class="movieName"><span>Madaari (U/A)</span></div>
+						<div class="movieLanguage"><span>Hindi</span></div>
+						<div class="jonner">
+							<div class="jonnerItem">DRAMA</div>
+							<div class="jonnerItem">SOCIAL</div>
+							<div class="jonnerItem">THRILLER</div>
+						</div>
+						<div class="hallName">
+							<span>
+								<strong>INOX: Garuda Mall MG</strong>
+							</span>
+						</div>
+						<div class="movieDate">
+							<span>
+								<strong>Sat , Aug 06</strong>
+							</span>
+						</div>
+						<div>
+							<hr/>
+						</div>
+						<div class="movieTime">
+							<span><a href="book.html"><strong>04:25PM</strong></a></span>
+						</div>
+						<div class="moreShows">
+							<span>
+								more shows
+							</span>
+						</div>
+					</div>
+					<div id="movieBanner2">
+						<div class="imageMovie"><img src="./Images/kabali.jpg"/></div>
+						<div class="movieName"><span>Kabali (U)</span></div>
+						<div class="movieLanguage"><span>Hindi</span></div>
+						<div class="jonner">
+							<div class="jonnerItem">ACTION</div>
+							<div class="jonnerItem">CRIME</div>
+							<div class="jonnerItem">DRAMA</div>
+						</div>
+						<div class="hallName">
+							<span>
+								<strong>INOX: Garuda Mall MG</strong>
+							</span>
+						</div>
+						<div class="movieDate">
+							<span>
+								<strong>Sat , Aug 06</strong>
+							</span>
+						</div>
+						<div>
+							<hr/>
+						</div>
+						<div class="movieTime">
+							<span><strong>06:15PM</strong></span>
+						</div>
+						<div class="moreShows">
+							<span>
+								more shows
+							</span>
+						</div>
+					</div>
+					<div id="movieBanner3">
+						<div class="imageMovie"><img src="./Images/budhia.jpg"/></div>
+						<div class="movieName"><span>Budhia (U)</span></div>
+						<div class="movieLanguage"><span>Hindi</span></div>
+						<div class="jonner">
+							<div class="jonnerItem">DRAMA</div>
+							<div class="jonnerItem">SPORTS</div>
+						</div>
+						<div class="hallName">
+							<span>
+								<strong>INOX: Garuda Mall MG</strong>
+							</span>
+						</div>
+						<div class="movieDate">
+							<span>
+								<strong>Sat , Aug 06</strong>
+							</span>
+						</div>
+						<div>
+							<hr/>
+						</div>
+						<div class="movieTime">
+							<span><strong>02:45PM</strong></span>
+						</div>
+						<div class="moreShows">
+							<span>
+								more shows
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
