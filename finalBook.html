@@ -5,18 +5,44 @@
 	function loaded(){
 		var params = document.URL.split('?');
 		var seats = params[1].split('&');
-		var totalPrice = seats[1];
-		var seat = seats[0];
-		console.log(seat + totalPrice);
+		var totalPrice = seats[1].split('=')[1];
+		var seat = seats[0].split('=')[1];
+		var seatCount = seat.split(',').length;
+		var internetFees = (22 * seatCount);
+		var finalPrice = (parseInt(totalPrice) + parseInt(internetFees));
+		document.getElementById('seats').innerHTML = seat;
+		document.getElementById('totalSeatPrice').innerHTML = totalPrice;
+		document.getElementById('internetFees').innerHTML = internetFees;
+		document.getElementById('totalAmountPayable').innerHTML = finalPrice;
+	}
+
+	function confirmBooking() {
+		alert("your booking is confirmed");
 	}
 </script>
 </head>
 <body onload="loaded()">
 	<div id="finalHeaderDiv">
 		<div id="headerDiv">
-			<span>Madaari (U/A)</span>
+			<span>Madaari(U/A)</span>
 		</div>
 		<div id="summaryDiv">
+			<div id="summaryImage">
+				<img src="./Images/madaarilandscape.jpg"/>
+			</div>
+			<div id="summaryPrice">
+				<div class="bookSummary"><span><strong>BOOKING SUMMARY</strong></span></div>
+				<div class="bookSummary">Seats : <span id="seats"></span></div><br/>
+				<hr/>
+				<div class="bookSummary">Sub total :<span id="totalSeatPrice"> </span></div>
+				<div class="bookSummary">Internet Handling Fees :<span id="internetFees"></span></div><br/>
+				<hr/>
+				<div class="bookSummary">Amount Payable :<span id="totalAmountPayable"></span></div>
+			</div>
+		</div>
+		<div>
+			<div id="confirmBooking" onclick="confirmBooking()">PROCEED
+			</div>
 		</div>
 	</div>
 </body>
