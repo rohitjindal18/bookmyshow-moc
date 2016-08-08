@@ -3,8 +3,17 @@
 	<title>Book My Show </title>
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
 	<link rel="stylesheet" type="text/css" href="./style/fonts.css">
-	<script type="text/javascript" src="./js/script.js"></script>
 	<script type="text/javascript">
+		function loaded() {
+		setInterval("changeCarousel()" , 3000);
+		}
+		var imageCount = 1;
+		function changeCarousel(){
+			console.log("rohit");
+			var imagesArray = ["./Images/carousel1.jpg","./Images/carousel2.jpg","./Images/carousel3.jpg","./Images/carousel4.jpg"];
+			document.getElementById('carouselimg').src = imagesArray[imageCount];
+			imageCount = (imageCount + 1)%4;
+		}
 		var loaded1 = false;
 		function menuClicked(event) {
 				console.log(event.innerHTML);
@@ -93,7 +102,7 @@
 		}
 	</script>
 </head>
-<body>
+<body onload="loaded()">
 	<div id="topDiv">
 		<div id="leftmenu">
 			<span onmouseover="spanOver(this)" onmouseout="spanOut(this)">EXPERIENCES</span>
