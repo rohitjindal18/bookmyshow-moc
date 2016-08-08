@@ -13,6 +13,11 @@ body , html {
 	color: white;
 }
 
+#all {
+	margin : 0;
+	padding: 0;
+}
+
 #rightmenu {
 	float: right;
 	color : white;
@@ -22,9 +27,9 @@ body , html {
 }
 #topDiv{
 	background-color: #1F2533;
-	width: 1430px;
+	width: 1480px;
 	height: 40px;	
-	position: fixed;
+	position: fixed;xx
 }
 
 #langDiv {
@@ -44,7 +49,7 @@ body , html {
 }
 
 #secondDiv {
-	width: 1430px;
+	width: 1480px;
 	height:35px;
 	padding-top: 38px;
 	position: fixed;
@@ -83,18 +88,18 @@ div  div span {
 }
 
 #carouselDiv {
-	width: 1430px;
+	width: 1480px;
 	height: 250px;
 	padding-top: 30px;
 }
 
 #carouselimg {
-	width: 1430px;
+	width: 1480px;
 	height: 480px;
 }
 
 #searchContainerDiv {
-	width: 1430px;
+	width: 1480px;
 	margin-top: 130px;
 	z-index: 100;
 	position: relative;
@@ -390,6 +395,7 @@ h3 {
 	height: auto;
 	width: 150px;
 }
+
 
 #searchedCities {
 	display: none;
