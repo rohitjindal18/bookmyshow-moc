@@ -5,8 +5,9 @@
 	function loaded(){
 		var params = document.URL.split('?');
 		var seats = params[1].split('&');
-		var totalPrice = seats[1].split('=')[1];
-		var seat = seats[0].split('=')[1];
+		var totalPrice = seats[2].split('=')[1];
+		var movieName = seats[0].split('=')[1];
+		var seat = seats[1].split('=')[1];
 		var seatCount = seat.split(',').length;
 		var internetFees = (22 * seatCount);
 		var finalPrice = (parseInt(totalPrice) + parseInt(internetFees));
@@ -14,6 +15,16 @@
 		document.getElementById('totalSeatPrice').innerHTML = totalPrice;
 		document.getElementById('internetFees').innerHTML = internetFees;
 		document.getElementById('totalAmountPayable').innerHTML = finalPrice;
+		document.getElementById('movieName1').innerHTML = movieName;
+		if(movieName == "Kabali(U)"){
+			document.getElementById('moviePoster').src = "./Images/kabalilandscape.jpg";
+		}
+		else if(movieName == "Madaari(U/A)"){
+			document.getElementById('moviePoster').src = "./Images/madarilandscape.jpg";
+		}
+		else if(movieName == "Budhia(U)") {
+			document.getElementById('moviePoster').src = "./Images/budhialandscape.jpg";
+		}	
 	}
 
 	function confirmBooking() {
@@ -24,11 +35,11 @@
 <body onload="loaded()">
 	<div id="finalHeaderDiv">
 		<div id="headerDiv">
-			<span>Madaari(U/A)</span>
+			<span id="movieName1"></span>
 		</div>
 		<div id="summaryDiv">
 			<div id="summaryImage">
-				<img src="./Images/madaarilandscape.jpg"/>
+				<img id="moviePoster"/>
 			</div>
 			<div id="summaryPrice">
 				<div class="bookSummary"><span><strong>BOOKING SUMMARY</strong></span></div>
