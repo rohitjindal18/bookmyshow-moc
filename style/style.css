@@ -276,12 +276,26 @@ h3 {
 }
 .percent {
 	color: red;
+	margin-left: 20px;
 }
 
 .movieListId {
 	margin-top: 22px;
 }
 
+.movieListId:before {
+	content: "\f004";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: red;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: relative;
+    left: 10;
+}
 .movieName {
 	font-family: Verdana;
 }
