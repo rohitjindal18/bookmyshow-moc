@@ -13,6 +13,75 @@ body , html {
 	color: white;
 }
 
+#movies_icon:before {
+	content: "\f00c";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 30;
+}
+
+#events_icon:before {
+	content: "\f001";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 30;
+}
+
+#plays_icon:before {
+	content: "\f144";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 30;
+}
+
+#allDiv:before {
+	content: "\f009";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: relative;
+    left : -18;
+}
+
+#sports_icon:before {
+	content: "\f1e3";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 30;
+}
 #all {
 	margin : 0;
 	padding: 0;
