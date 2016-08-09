@@ -9,6 +9,16 @@
 		var seatSelected = [];
 		var totalPrice = 0;
 		var currentPrice = 0;
+		var movieName = "";
+		var showTime = "";
+		function loaded() {
+			var queryParam = document.URL.split('?')[1];
+			movieName = queryParam.split('&')[0].split('=')[1];
+			showTime  = queryParam.split('&')[1].split('=')[1];
+
+			document.getElementById('movieN').innerHTML = movieName;
+			document.getElementById('showT').innerHTML = showTime;
+		}
 		function seatCountClicked(event) {
 			numberofSeats =  event.textContent;
 			document.getElementById('numberOfTickets').style.display = 'none';
@@ -22,7 +32,7 @@
 
 		function proceedSeatSelect() {
 			//document.cookie = "seats="+seatSelected+";totalPrice="+totalPrice+";";
-			window.location.href="finalBook.html?seats="+seatSelected+"&totalPrice="+totalPrice;
+			window.location.href="finalBook.html?movie="+movieName+"&seats="+seatSelected+"&totalPrice="+totalPrice;
 		}
 
 		function selectSeat(event){
@@ -121,7 +131,7 @@
 		}
 	</script>
 </head>
-	<body>
+	<body onload="loaded()">
 		<div id="bookingDiv">
 			<div id="numberOfTickets">
 				<div class="ticketHeader">
@@ -147,7 +157,7 @@
 			</div>
 			<div id="bookingHeaderDiv">
 				<div id="movieTitle">
-					<span>Madaari (U/A)</span>
+					<span id="movieN"></span>
 				</div>
 				<div id="ticketCount">
 					<h5>NO. OF TICKETS</h5>
@@ -166,7 +176,7 @@
 				</div>
 				<div id="showTime">
 					<h5>SHOWTIME</h5>
-					<div><span>04 : 25 PM</span></div>
+					<div><span id="showT"></span></div>
 				</div>
 				<div id="totalPriceDiv">
 					<div style="color:white">

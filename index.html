@@ -6,6 +6,12 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<script type="text/javascript">
 		function loaded() {
+			document.getElementById('firstMovieImg').src = './Images/madaari.jpg';
+			document.getElementById('movieNam').innerHTML = 'Madaari (U/A)';
+			document.getElementById('secondMovieImg').src = './Images/kabali.jpg';
+			document.getElementById('movieNam2').innerHTML = 'Kabali (U)';
+			document.getElementById('thirdMovieImg').src = './Images/budhia.jpg';
+			document.getElementById('movieNam3').innerHTML = 'Budhia (U)';
 		setInterval("changeCarousel()" , 3000);
 		}
 		var imageCount = 1;
@@ -101,6 +107,55 @@
 			document.getElementById('searchCity').style.display = 'none';
 			loaded1 = false;
 		}
+
+		function showComingSoonMovies(){
+			document.getElementById('firstMovieImg').src = './Images/daro.jpg';
+			document.getElementById('movieNam').innerHTML = 'Mohenjo Daro (U/A)';
+			document.getElementById('secondMovieImg').src = './Images/sultan.jpg';
+			document.getElementById('movieNam2').innerHTML = 'Sultan (U)';
+			document.getElementById('thirdMovieImg').src = './Images/suicide.jpg';
+			document.getElementById('movieNam3').innerHTML = 'Suicide Squad (A)';
+
+			document.getElementById('movieHall').style.display = 'none';
+			document.getElementById('movieDates').style.display = 'none';
+			document.getElementById('movieTimes').style.display = 'none';
+			document.getElementById('movieHall2').style.display = 'none';
+			document.getElementById('movieDates2').style.display = 'none';
+			document.getElementById('movieTimes2').style.display = 'none';
+			document.getElementById('movieHall3').style.display = 'none';
+			document.getElementById('movieDates3').style.display = 'none';
+			document.getElementById('movieTimes3').style.display = 'none';
+
+			document.getElementById('comingsoon').style.backgroundColor = 'white';
+			document.getElementById('comingsoon').style.color = 'black';
+			document.getElementById('showing').style.backgroundColor = '#F2F2F2';
+			document.getElementById('showing').style.color = '#656570';
+		}
+
+		function showNowShowingMovies() {
+			document.getElementById('firstMovieImg').src = './Images/madaari.jpg';
+			document.getElementById('movieNam').innerHTML = 'Madaari (U/A)';
+			document.getElementById('secondMovieImg').src = './Images/kabali.jpg';
+			document.getElementById('movieNam2').innerHTML = 'Kabali (U)';
+			document.getElementById('thirdMovieImg').src = './Images/budhia.jpg';
+			document.getElementById('movieNam3').innerHTML = 'Budhia (U)';
+			document.getElementById('movieHall').style.display = 'block';
+			document.getElementById('movieDates').style.display = 'block';
+			document.getElementById('movieTimes').style.display = 'block';
+
+			document.getElementById('movieHall2').style.display = 'block';
+			document.getElementById('movieDates2').style.display = 'block';
+			document.getElementById('movieTimes2').style.display = 'block';
+
+			document.getElementById('movieHall3').style.display = 'block';
+			document.getElementById('movieDates3').style.display = 'block';
+			document.getElementById('movieTimes3').style.display = 'block';
+			document.getElementById('showing').style.backgroundColor = 'white';
+			document.getElementById('showing').style.color = 'black';
+			document.getElementById('comingsoon').style.backgroundColor = '#F2F2F2';
+			document.getElementById('comingsoon').style.color = '#656570';
+
+		}
 	</script>
 </head>
 <body onload="loaded()">
@@ -192,29 +247,29 @@
 					<span>JUST FOR YOU</span>
 				</div>
 				<div id="nowShowingTab">
-					<div id="showing">
+					<div id="showing" onclick="showNowShowingMovies()">
 						<span>NOW SHOWING</span>
 					</div>
-					<div id="comingsoon">
+					<div id="comingsoon" onclick="showComingSoonMovies()">
 						<span>COMING SOON</span>
 					</div>
 				</div><br/>
 				<div id="movieBanner">
 					<div id="movieBanner1">
-						<div class="imageMovie"><img src="./Images/madaari.jpg"/></div>
-						<div class="movieName"><span>Madaari (U/A)</span></div>
+						<div class="imageMovie"><img id="firstMovieImg" /></div>
+						<div class="movieName"><span id="movieNam"></span></div>
 						<div class="movieLanguage"><span>Hindi</span></div>
 						<div class="jonner">
 							<div class="jonnerItem">DRAMA</div>
 							<div class="jonnerItem">SOCIAL</div>
 							<div class="jonnerItem">THRILLER</div>
 						</div>
-						<div class="hallName">
+						<div id="movieHall" class="hallName">
 							<span>
 								<strong>INOX: Garuda Mall MG</strong>
 							</span>
 						</div>
-						<div class="movieDate">
+						<div id="movieDates" class="movieDate">
 							<span>
 								<strong>Sat , Aug 06</strong>
 							</span>
@@ -222,30 +277,30 @@
 						<div>
 							<hr/>
 						</div>
-						<div class="movieTime">
-							<span><a href="book.html"><strong>04:25PM</strong></a></span>
+						<div id="movieTimes" class="movieTime">
+							<span><a href="book.html?movieName=Madaari(U/A)&showTime=04:25PM"><strong>04:25PM</strong></a></span>
 						</div>
-						<div class="moreShows">
+						<div id="moreShows" class="moreShows">
 							<span>
 								more shows
 							</span>
 						</div>
 					</div>
 					<div id="movieBanner2">
-						<div class="imageMovie"><img src="./Images/kabali.jpg"/></div>
-						<div class="movieName"><span>Kabali (U)</span></div>
+						<div class="imageMovie"><img id="secondMovieImg" /></div>
+						<div class="movieName"><span id="movieNam2"></span></div>
 						<div class="movieLanguage"><span>Hindi</span></div>
 						<div class="jonner">
 							<div class="jonnerItem">ACTION</div>
 							<div class="jonnerItem">CRIME</div>
 							<div class="jonnerItem">DRAMA</div>
 						</div>
-						<div class="hallName">
+						<div id="movieHall2" class="hallName">
 							<span>
 								<strong>INOX: Garuda Mall MG</strong>
 							</span>
 						</div>
-						<div class="movieDate">
+						<div id="movieDates2" class="movieDate">
 							<span>
 								<strong>Sat , Aug 06</strong>
 							</span>
@@ -253,8 +308,8 @@
 						<div>
 							<hr/>
 						</div>
-						<div class="movieTime">
-							<span><strong>06:15PM</strong></span>
+						<div id="movieTimes2" class="movieTime">
+							<span><a href="book.html?movieName=Kabali(U)&showTime=06:15PM"><strong>06:15PM</strong><</a>/span>
 						</div>
 						<div class="moreShows">
 							<span>
@@ -263,19 +318,19 @@
 						</div>
 					</div>
 					<div id="movieBanner3">
-						<div class="imageMovie"><img src="./Images/budhia.jpg"/></div>
-						<div class="movieName"><span>Budhia (U)</span></div>
+						<div class="imageMovie"><img id="thirdMovieImg" /></div>
+						<div class="movieName"><span id="movieNam3"></span></div>
 						<div class="movieLanguage"><span>Hindi</span></div>
 						<div class="jonner">
 							<div class="jonnerItem">DRAMA</div>
 							<div class="jonnerItem">SPORTS</div>
 						</div>
-						<div class="hallName">
+						<div id="movieHall3" class="hallName">
 							<span>
 								<strong>INOX: Garuda Mall MG</strong>
 							</span>
 						</div>
-						<div class="movieDate">
+						<div id="movieDates3" class="movieDate">
 							<span>
 								<strong>Sat , Aug 06</strong>
 							</span>
@@ -283,8 +338,8 @@
 						<div>
 							<hr/>
 						</div>
-						<div class="movieTime">
-							<span><strong>02:45PM</strong></span>
+						<div id="movieTimes3" class="movieTime">
+							<span><a href="book.html?movieName=Budhia(U)&showTime=02:45PM"><strong>02:45PM</strong></a></span>
 						</div>
 						<div class="moreShows">
 							<span>
