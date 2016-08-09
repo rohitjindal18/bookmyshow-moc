@@ -3,6 +3,7 @@
 	<title>Book My Show </title>
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
 	<link rel="stylesheet" type="text/css" href="./style/fonts.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<script type="text/javascript">
 		function loaded() {
 		setInterval("changeCarousel()" , 3000);
@@ -147,10 +148,10 @@
 		<img id="carouselimg" src="./Images/carousel1.jpg"/>
 	</div>
 	<div id="allSubMenu">
-		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">MOVIES</div>
-		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">EVENTS</div>
-		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">PLAYS</div>
-		<div class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">SPORTS</div>
+		<div id="movies_icon" class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">MOVIES</div>
+		<div id="events_icon" class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">EVENTS</div>
+		<div id="plays_icon" class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">PLAYS</div>
+		<div id="sports_icon" class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">SPORTS</div>
 	</div>
 	<div id="searchContainerDiv">
 		<div id="searchDiv">
