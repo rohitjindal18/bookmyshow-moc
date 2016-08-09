@@ -204,6 +204,19 @@ div  div span {
 	font-family: "Lucida Grande";
 }
 
+#searchInnerDiv:after {
+	content: "\f00b";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: black;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: relative;
+}
+
 #sectionHeader {
 	margin-top: 75px;
 	text-align: center;
