@@ -12,7 +12,7 @@
 			document.getElementById('movieNam2').innerHTML = 'Kabali (U)';
 			document.getElementById('thirdMovieImg').src = './Images/budhia.jpg';
 			document.getElementById('movieNam3').innerHTML = 'Budhia (U)';
-		setInterval("changeCarousel()" , 3000);
+		//setInterval("changeCarousel()" , 3000);
 		}
 		var imageCount = 1;
 		function changeCarousel(){
@@ -200,7 +200,10 @@
 		</div>
 	</div>#
 	<div id="carouselDiv">
-		<img id="carouselimg" src="./Images/carousel1.jpg"/>
+		<div id="innerCarousel">
+			<img class="carouselimg" src="./Images/carousel1.jpg"/>
+			<img class="carouselimg2" src="./Images/carousel2.jpg"/>
+		</div>
 	</div>
 	<div id="allSubMenu">
 		<div id="movies_icon" class="subMenuAll" onclick="menuClicked(this)" onmouseover="AllMenuLoaded()" onmouseout="AllMenuUnloaded()">MOVIES</div>
